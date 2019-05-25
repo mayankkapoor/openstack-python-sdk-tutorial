@@ -8,4 +8,5 @@ COPY . /app
 # Install needed packages
 RUN pip install -r requirements.txt
 
+EXPOSE 5000
 ENTRYPOINT ["python", "flaskr/app.py"]
