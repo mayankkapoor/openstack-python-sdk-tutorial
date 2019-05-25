@@ -24,18 +24,31 @@ def list_openstack_resources():
     print("conn: ", conn)
 
     # Print list of servers, images, flavors, endpoints, projects, users
+    server_list = list(conn.compute.servers())
     for server in conn.compute.servers():
         print("server.name: ", server.name)
+
+    image_list = list(conn.compute.images())
     for image in conn.compute.images():
         print("image.name: ", image.name)
+
+    flavor_list = list(conn.compute.flavors())
     for flavor in conn.compute.flavors():
         print("flavor.name: ", flavor.name)
-    for endpoint in conn.identity.endpoints():
-        print("endpoint: ", endpoint)
+
+    project_list = list(conn.identity.projects())
     for project in conn.identity.projects():
         print("project: ", project)
+
+    user_list = list(conn.identity.users())
     for user in conn.identity.users():
         print("user: ", user)
+
+    pprint(server_list)
+    pprint(image_list)
+    pprint(flavor_list)
+    pprint(project_list)
+    pprint(user_list)
 
     return "List printed to stdout"
 
