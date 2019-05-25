@@ -7,10 +7,11 @@ app = Flask(__name__)
 # Source the openstack project rc file before running this app, to create the
 # environment variables needed
 conn = connection.Connection(auth_url=os.environ['OS_AUTH_URL'],
-                             project_name="demo", username="admin",
-                             password="mayank@123",
+                             project_name=os.environ['OS_PROJECT_NAME'],
+                             username=os.environ['OS_USERNAME'],
+                             password=os.environ['OS_PASSWORD'],
                              user_domain_id="default",
-                             project_domain_id="default")
+                             project_domain_id=os.environ['OS_PROJECT_DOMAIN_ID'])
 
 
 @app.route("/")
