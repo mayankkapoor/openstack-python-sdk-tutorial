@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from openstack import connection
 from pprint import pprint
 import os
@@ -37,6 +37,27 @@ def list_openstack_resources():
     pprint(user_list)
 
     return "List printed to stdout"
+
+
+@app.route("/create_server")
+def create_server():
+    # Check if connection is established
+    print("conn: ", conn)
+
+    # print(request.args.get('server_name'))
+    # Create the server using the server_name parameter in the GET request
+    server_name = request.args.get('server_name')
+    print("Starting to create the server with name: ", server_name)
+    result = conn.create_server(name=server_name,
+                       image="cirros-0.4.0-x86_64-disk",
+                       flavor="m1.micro",
+                       terminate_volume=true,
+                       timeout=180,
+                       volume_size='5',
+                       )
+    pprint(result)
+
+    return "Server create request sent!"
 
 
 if __name__ == "__main__":
