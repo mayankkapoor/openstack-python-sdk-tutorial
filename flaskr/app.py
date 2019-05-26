@@ -51,7 +51,6 @@ def create_server():
                                 wait=True,
                                 bootable=True,
                                 )
-    pprint("volume: ", volume)
 
     # Create the server using the server_name parameter in the GET request
     server_name = request.args.get('server_name')
