@@ -1,6 +1,7 @@
 from flask import Flask, request
 from openstack import connection
 from pprint import pprint
+import json
 import os
 
 app = Flask(__name__)
@@ -51,6 +52,7 @@ def create_server():
                                 wait=True,
                                 bootable=True,
                                 )
+    json.dumps(volume)
 
     # Create the server using the server_name parameter in the GET request
     server_name = request.args.get('server_name')
@@ -62,6 +64,7 @@ def create_server():
                                 boot_volume=volume.id,
                                 key_name="mayank-public-key",
                                 )
+    json.dumps(server)
 
     return "Server create request sent!"
 
