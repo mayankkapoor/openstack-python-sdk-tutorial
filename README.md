@@ -3,8 +3,9 @@
 Openstack Python SDK tutorial using Flask
 
 ## Assumptions:
-* You have an existing openstack installation up and running.
-* You have already downloaded the openrc.sh from Horizon for your project.
+* You have an existing Openstack installation up and running.
+* You have already downloaded the openrc.sh file from Horizon for your project. Sample demo-openrc.sh file downloaded from Horizon for a Devstack install is included.
+* The OS_AUTH_URL mentioned in the openrc.sh file is accessible from the environment or terminal used to run this Flask app. If the OS_AUTH_URL IP is a private IP, you need to run the Flask app from the same VM (for Devstack installations) or Network Openstack is running on. Updating this IP to the assigned public IP of the Devstack VM may not work as the Openstack Endpoints for Compute etc. will still be available only on the Private IP.
 
 ## Clone this repo and setup Flask virtualenv
 ```
