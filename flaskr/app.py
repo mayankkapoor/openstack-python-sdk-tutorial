@@ -52,7 +52,7 @@ def create_server():
                                 wait=True,
                                 bootable=True,
                                 )
-    pprint(json.dumps(volume))
+    print(json.dumps(volume))
 
     # Create the server using the server_name parameter in the GET request
     server_name = request.args.get('server_name')
@@ -64,7 +64,7 @@ def create_server():
                                 boot_volume=volume.id,
                                 key_name="mayank-public-key",
                                 )
-    pprint(json.dumps(server))
+    print(json.dumps(server))
 
     return "Server create request sent!"
 
