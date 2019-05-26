@@ -51,7 +51,7 @@ def create_server():
     result = conn.create_server(name=server_name,
                        image="cirros-0.4.0-x86_64-disk",
                        flavor="m1.micro",
-                       terminate_volume=true,
+                       terminate_volume=True,
                        timeout=180,
                        volume_size='5',
                        )
