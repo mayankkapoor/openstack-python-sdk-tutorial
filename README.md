@@ -77,4 +77,9 @@ conn:  <openstack.connection.Connection object at 0x7fc49a235198>
 ...
 ```
 
-Congratulations, you've connected to openstack using the Openstack SDK. Now, let's try to create and delete a virtual machine (server).
+Congratulations, you've connected to Openstack using the Openstack SDK. Now, let's try to create and delete a virtual machine (server).
+
+## Create a virtual machine server using Openstack SDK
+The app.py has a function "create_server" which takes in GET parameters from the browser to create a volume and then a server.
+
+Type http://localhost:8080/create_server?server_name=server1&volume_size=2 into the browser. This will create an instance with volume of size 2 GiB and name "server1".

@@ -47,12 +47,13 @@ def create_server():
 
     # Create the volume first
     volume_size = request.args.get('volume_size')
+    print("Starting to create volume with size (in GiB): ", volume_size)
     volume = conn.create_volume(size=volume_size,
                                 image="cirros-0.4.0-x86_64-disk",
                                 wait=True,
                                 bootable=True,
                                 )
-    print(json.dumps(volume))
+    print("Created volume: ", json.dumps(volume))
 
     # Create the server using the server_name parameter in the GET request
     server_name = request.args.get('server_name')
@@ -64,7 +65,7 @@ def create_server():
                                 boot_volume=volume.id,
                                 key_name="mayank-public-key",
                                 )
-    print(json.dumps(server))
+    print("Created server: "json.dumps(server))
 
     return "Server create request sent!"
 
