@@ -62,7 +62,6 @@ def create_server():
                                 boot_volume=volume.id,
                                 key_name="mayank-public-key",
                                 )
-    pprint("server: ", server)
 
     return "Server create request sent!"
 
